@@ -184,6 +184,7 @@ a {
   animation: bounce 2s infinite;
   display: block;
   margin: 0 auto;
+  margin-right: 750px;
 }
 
 @keyframes bounce {

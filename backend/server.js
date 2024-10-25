@@ -17,6 +17,9 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER, // Usando variável de ambiente
     pass: process.env.EMAIL_PASS, // Usando variável de ambiente
   },
+  tls: {
+    rejectUnauthorized: false,  // Desativa a verificação de certificado SSL
+  },
 });
 
 // Endpoint para enviar e-mail
@@ -32,12 +35,13 @@ app.post('/send', (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error('Erro ao enviar o e-mail:', error);  // Exibe mais detalhes sobre o erro
-      return res.status(500).send('Erro ao enviar o e-mail.');
+      console.error('Erro ao enviar o e-mail:', error.message);  // Detalhes do erro
+      return res.status(500).send(`Erro ao enviar o e-mail: ${error.message}`);
     }
-    console.log('E-mail enviado:', info.response);  // Exibe a resposta do Gmail
-    res.send('E-mail enviado com sucesso!');
+    console.log('E-mail enviado:', info.response);  
+    res.send('Message sent successfully!');
   });
+  
 });
 
 app.listen(5000, () => {
