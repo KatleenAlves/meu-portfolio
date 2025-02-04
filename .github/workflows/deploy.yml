@@ -14,11 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Instale o Node.js
+      # 2. Configure o Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16  # Certifique-se de usar a mesma versão do seu ambiente local
+          node-version: 18  # Certifique-se de usar Node.js 18, conforme indicado no erro anterior
 
       # 3. Instale dependências e gere o build
       - name: Install dependencies and build
@@ -30,5 +30,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build  # Pasta gerada pelo build
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Use o token padrão do GitHub Actions
+          publish_dir: ./build                      # Pasta gerada pelo build
