@@ -53,23 +53,14 @@ function Contact() {
   };
 
   return (
-    <div id="contact" className="contact-section"> {/* Aqui está o id="contact" */}
+    <div id="contact" className="contact-section">
       <div className="contact-left">
         <h2 className="section-title">
           <span className="line1">It will be a</span>
           <span className="line2">pleasure to work with you!</span>
         </h2>
-        <div className="social-icons">
-          <p>My Social Networks</p>
-          <a href="https://www.linkedin.com/in/katleen-maury-7418b3128/" target="_blank" rel="noopener noreferrer">
-            <img src={linkedin} alt="LinkedIn" />
-          </a>
-          <a href="https://github.com/KatleenAlves" target="_blank" rel="noopener noreferrer">
-            <img src={github} alt="GitHub" />
-          </a>
-        </div>
       </div>
-      
+
       <div ref={formRef} className="contact-right fade-in">
         <h3 className="contact-title">Contact Me</h3>
         <form onSubmit={handleSubmit} className="contact-form">
@@ -114,10 +105,20 @@ function Contact() {
             Send
           </button>
         </form>
+        <div className="social-icons">
+          <p>My Social Networks</p>
+          <a href="https://www.linkedin.com/in/katleen-maury-7418b3128/" target="_blank" rel="noopener noreferrer">
+            <img src={linkedin} alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/KatleenAlves" target="_blank" rel="noopener noreferrer">
+            <img src={github} alt="GitHub" />
+          </a>
+        </div>
       </div>
-      {/*<footer className="footer">
+
+      <footer className="footer">
         © 2024 Katleen Maury. All rights reserved.
-      </footer>*/}
+      </footer>
     </div>
   );
 }

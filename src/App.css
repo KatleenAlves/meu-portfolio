@@ -371,6 +371,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Mover o conteúdo mais para o topo */
+  align-items: flex-start;
 }
 
 .section-title {
@@ -392,7 +393,6 @@ a {
 .social-icons {
   /*display: flex;*/
   gap: 15px;
-  position: absolute; /* Posicionar os ícones no canto inferior esquerdo */
   bottom: 20px;
   left: 20px;
 }
@@ -498,6 +498,11 @@ a {
     font-size: 1.8rem;
   }
 
+  .scroll-down-arrow {
+    margin: 0 auto;
+    /* margin-right: 750px; */
+}
+
   .about-section {
     flex-direction: column;
     padding: 40px 80px;
@@ -510,26 +515,45 @@ a {
 
   .facts-section {
     flex-direction: column;
-    text-align: center;
+    padding-left: 40px;
   }
 
   .contact-section {
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
+    gap: 20px;
   }
 
-  .contact-form {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .input-field {
+  .contact-left {
+    order: 1; /* Exibe o título acima do formulário */
+    align-items: center;
     width: 100%;
   }
 
-  .contact-submit-btn {
+  .contact-right {
+    order: 2; /* Exibe o formulário */
     width: 100%;
+    padding-bottom: 90px;
+  }
+
+  .social-icons {
+    order: 3; /* Exibe os ícones sociais abaixo do formulário */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  /* Rodapé */
+  .footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 1rem;
+    color: #191919;
+    position: relative;
+    margin-top: 20px;
   }
 }
 
