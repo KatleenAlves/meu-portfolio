@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
+import emailjs from 'emailjs-com'; // Importa o EmailJS
 import linkedin from '../images/social.png';
 import github from '../images/github.png';
 
@@ -14,6 +14,8 @@ function Contact() {
   const formRef = useRef(null);
 
   useEffect(() => {
+    const form = formRef.current; // Captura o valor atual de formRef
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -23,16 +25,16 @@ function Contact() {
       });
     });
 
-    if (formRef.current) {
-      observer.observe(formRef.current);
+    if (form) {
+      observer.observe(form);
     }
 
     return () => {
-      if (formRef.current) {
-        observer.unobserve(formRef.current);
+      if (form) {
+        observer.unobserve(form);
       }
     };
-  }, []);
+  }, []); // Sem dependências dinâmicas
 
   const handleChange = (e) => {
     setFormData({
@@ -41,15 +43,32 @@ function Contact() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5000/send', formData);
-      alert('Mensagem enviada com sucesso!');
-    } catch (error) {
-      console.error('Erro ao enviar a mensagem', error);
-      alert('Ocorreu um erro ao enviar a mensagem.');
-    }
+
+    // Enviando com EmailJS
+    emailjs
+      .send(
+        'service_dd6na1p', // Substitua pelo seu Service ID
+        'template_onl8q4w', // Substitua pelo seu Template ID
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        '36T-mqS3vm7s-yGNL' // Substitua pelo seu User ID
+      )
+      .then(
+        () => {
+          alert('Mensagem enviada com sucesso!');
+          setFormData({ name: '', email: '', subject: 'Web Development Project', message: '' }); // Limpa o formulário
+        },
+        (error) => {
+          console.error('Erro ao enviar a mensagem:', error);
+          alert('Ocorreu um erro ao enviar a mensagem.');
+        }
+      );
   };
 
   return (
