@@ -1,5 +1,5 @@
 # 🎨 **Katleen Maury's Personal Portfolio**  
-✨ Check out the live version of my portfolio here: [Katleen Maury's Portfolio](https://example.com)
+✨ Check out the live version of my portfolio here: [Katleen Maury's Portfolio](katleenalves.github.io/meu-portfolio/)
 
 ---
 
