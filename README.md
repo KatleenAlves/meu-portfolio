@@ -34,7 +34,7 @@ This portfolio website serves as a platform to showcase my skills, projects, and
 
 ## 🎥 **Portfolio in Action**  
 ### Video Demo  
-> **Watch the portfolio walkthrough:**  ![Demo GIF](./site apresentação.gif)
+> **Watch the portfolio walkthrough:**  ![Demo GIF](./site%20apresentação.gif)
 
 ---
 
