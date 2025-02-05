@@ -62,7 +62,7 @@ function Contact() {
       )
       .then(
         () => {
-          alert('Mensagem enviada com sucesso!');
+          alert('Message sent successfully!');
           setFormData({ name: '', email: '', subject: 'Web Development Project', message: '' }); // Limpa o formulário
         },
         (error) => {
