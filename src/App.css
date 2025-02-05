@@ -127,7 +127,7 @@ a {
   font-size: 3rem;
   font-weight: 600;
   color: #191919;
-  animation: fadeInUp 1s ease forwards;
+  animation: fadeInUp 2s ease forwards;
 }
 
 .text-section h2 {
@@ -140,7 +140,7 @@ a {
   font-size: 2.2rem;
   color: #2a8451;
   opacity: 0;
-  animation: fadeInUp 2s ease forwards;
+  animation: fadeInUp 4s ease forwards;
 }
 
 .image-wrapper {
@@ -358,19 +358,20 @@ a {
   transform: translateY(-5px) scale(1.05);
 }
 
-/*contact section */
+/* Contact Section */
 .contact-section {
   display: flex;
-  justify-content: space-between; /* Ajusta o espaço entre os dois lados */
+  justify-content: space-between; /* Ajusta o espaço entre o título e o formulário */
   padding: 100px 50px;
-  position: relative;
+  position: static;
+  overflow: visible;
 }
 
 .contact-left {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Mover o conteúdo mais para o topo */
+  justify-content: flex-start; /* Mantém o título no topo */
   align-items: flex-start;
 }
 
@@ -378,23 +379,40 @@ a {
   font-size: 3.5rem;
   color: #191919;
   margin-bottom: 40px;
-  text-align: left; 
-  margin-left: 20px; /* Aproximar o título da borda esquerda */
-  line-height: 1.2; /* Ajuste de espaçamento entre as linhas */
+  text-align: left;
+  margin-left: 20px; /* Aproxima o título da borda esquerda */
+  line-height: 1.2; /* Ajusta o espaçamento entre as linhas */
 }
 
 .section-title .line1 {
-  display: block; /* Garante que cada parte esteja em sua própria linha */
+  display: block; /* Garante que o texto esteja em linhas separadas */
 }
 
 .section-title .line2 {
-  display: block; /* Garante que cada parte esteja em sua própria linha */
+  display: block; /* Garante que o texto esteja em linhas separadas */
 }
+
 .social-icons {
+  position: fixed; /* Fixa o elemento na viewport, independente do contêiner */
+  bottom: 20px; /* Próximo ao rodapé */
+  left: 20px; /* Bem próximo ao canto esquerdo */
   /*display: flex;*/
-  gap: 15px;
-  bottom: 20px;
-  left: 20px;
+  flex-direction: column; /* Alinhar os ícones em coluna */
+  align-items: flex-start;
+  gap: 10px;
+  z-index: 1000; /* Garante que esteja acima de outros elementos */
+  margin-left: 0; /* Remove possíveis margens herdadas */
+  transform: none; /* Garante que transformações antigas não afetem */
+  transform: translateX(-850%);
+}
+
+
+.social-icons p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #191919;
+  text-align: left;
 }
 
 .social-icons img {
@@ -404,7 +422,7 @@ a {
 }
 
 .social-icons img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Amplia os ícones ao passar o mouse */
 }
 
 .contact-right {
@@ -457,13 +475,20 @@ a {
   transform: scale(1.05);
 }
 
+
 /* Responsividade */
 @media (max-width: 1200px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
   }
 }
-
+/* Ajuste para telas médias */
+@media (max-width: 1024px) {
+  #contact .social-icons {
+    transform: translateX(-295%); /* Reposiciona para telas médias */
+    /*position: static;*/
+  }
+}
 @media (max-width: 768px) {
   /* Ajustes no menu */
   #menuToggle {
@@ -521,31 +546,35 @@ a {
   .contact-section {
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    /*padding: 40px 20px;*/
     gap: 20px;
   }
 
   .contact-left {
-    order: 1; /* Exibe o título acima do formulário */
-    align-items: center;
-    width: 100%;
+    text-align: center; /* Centraliza o texto do título */
+    width: 100%; /* Garante que ocupe toda a largura disponível */
   }
 
   .contact-right {
-    order: 2; /* Exibe o formulário */
-    width: 100%;
-    padding-bottom: 90px;
+    width: 100%; /* Garante que o formulário ocupe toda a largura disponível */
+    padding-bottom: 20px; /* Adiciona espaçamento inferior */
   }
 
   .social-icons {
-    order: 3; /* Exibe os ícones sociais abaixo do formulário */
-    display: flex;
+    position: static; /* Remove posição fixa */
+    transform: none; /* Remove qualquer transformação */
+    margin: 20px auto 0; /* Centraliza horizontalmente */
+    flex-direction: row; /* Alinha os ícones horizontalmente */
     justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    order: 2; /* Reposiciona os ícones abaixo do formulário */
+    transform: translateX(-250%);
   }
 
-  /* Rodapé */
+  .contact-left {
+    order: 0; /* Mantém o título na ordem correta */
+  }
+
+  /* Rodapé 
   .footer {
     width: 100%;
     text-align: center;
@@ -554,7 +583,7 @@ a {
     color: #191919;
     position: relative;
     margin-top: 20px;
-  }
+  }*/
 }
 
 .fade-in {

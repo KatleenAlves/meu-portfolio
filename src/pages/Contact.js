@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import emailjs from 'emailjs-com'; // Importa o EmailJS
 import linkedin from '../images/social.png';
 import github from '../images/github.png';
+import '../App.css';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -109,7 +110,7 @@ function Contact() {
           >
             <option value="Web Development Project">Web Development Project</option>
             <option value="App Development Project">App Development Project</option>
-            <option value="Freelance">Freelance Work</option>
+            <option value="Freelance">Freelancer Work</option>
             <option value="Job Offer">Job Offer</option>
           </select>
           <textarea
@@ -125,7 +126,7 @@ function Contact() {
           </button>
         </form>
         <div className="social-icons">
-          <p>My Social Networks</p>
+          <p>My Social</p>
           <a href="https://www.linkedin.com/in/katleen-maury-7418b3128/" target="_blank" rel="noopener noreferrer">
             <img src={linkedin} alt="LinkedIn" />
           </a>
@@ -134,10 +135,6 @@ function Contact() {
           </a>
         </div>
       </div>
-
-      <footer className="footer">
-        © 2024 Katleen Maury. All rights reserved.
-      </footer>
     </div>
   );
 }
